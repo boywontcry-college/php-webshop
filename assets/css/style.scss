@@ -1,0 +1,9 @@
+@import 'normalize';
+@import 'colors';
+@import 'fonts';
+
+@include doNormalize;
+
+body {
+    background-color: $white;
+}
