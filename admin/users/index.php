@@ -9,8 +9,8 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link active" href="../users/">Users</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../orders/">Orders</a></li>
                     <li class="nav-item"><a class="nav-link" href="../products/">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../customers/">Customers</a></li>
                 </ul><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="../logout.php">Log Out</a></span>
             </div>
         </div>
