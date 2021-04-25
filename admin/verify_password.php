@@ -2,8 +2,6 @@
     include('core/header.php');
 
     if (isset($_POST['submit']) && $_POST['submit'] != '') {
-        //default user: test@test.nl
-        //default password: test123
         $token = $con->real_escape_string($_GET['token']);
         $password_1 = $con->real_escape_string($_POST['password_1']);
         $password_2 = $con->real_escape_string($_POST['password_2']);
