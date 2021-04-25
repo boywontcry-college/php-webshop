@@ -1,5 +1,5 @@
 <?php
-    include($_SERVER['DOCUMENT_ROOT'].'core/db_connect.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/php/core/db_connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
