@@ -41,14 +41,14 @@
                                         $liqry->store_result();
                                         $liqry->fetch();
                                         if($liqry->num_rows == '1'){
-                                            echo '<div class="form-group">';
-                                            echo '<label>Admin UID</label>';
-                                            echo '<input type="text" name="uid" class="form-control" value="' . $adminId . '" readonly>';
-                                            echo '</div>';
-                                            echo '<div class="form-group">';
-                                            echo '<label>E-mail</label>';
-                                            echo '<input type="email" name="email" class="form-control" value="' . $email . '" required>';
-                                            echo '</div>';
+                                        echo '<div class="form-group">
+                                                  <label>Admin UID</label>
+                                                  <input type="text" name="uid" class="form-control" value="' . $adminId . '" readonly>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label>E-mail</label>
+                                                  <input type="email" name="email" class="form-control" value="' . $email . '" required>
+                                              </div>';
                                         }
                                     }
                                 }
