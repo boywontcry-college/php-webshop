@@ -32,7 +32,7 @@
 			    <table class="table table-striped table-hover">
 				    <thead>
                     <?php
-                        $usiqry = $con->prepare("SELECT admin_user_id,email,password_changed,datetime FROM admin_user");
+                        $usiqry = $con->prepare("SELECT a.admin_user_id, a.email, a.password_changed, a.datetime FROM admin_user AS a");
                         if ($usiqry === false) {
                             trigger_error(mysqli_error($con));
                         } else {
@@ -42,6 +42,8 @@
                                 echo '<tr>
                                       <th>Admin UID</th>
                                       <th>E-Mail</th>
+                                      <th>Password Changed</th>
+                                      <th>Account Created</th>
                                       <th>Actions</th>
                                       </tr>';
                                 while ($usiqry->fetch() ) { ?>
@@ -50,6 +52,8 @@
                     <tr>
                         <td><?php echo $adminId; ?></td>
                         <td><?php echo $email; ?></td>
+                        <td><?php echo $password_changed; ?></td>
+                        <td><?php echo $datetime; ?></td>
                         <td>
 							<a href="edit_user.php?uid=<?php echo $adminId; ?>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a href="delete_user.php?uid=<?php echo $adminId; ?>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
