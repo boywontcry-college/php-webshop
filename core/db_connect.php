@@ -1,18 +1,6 @@
 <?php
-// hiermee kun je $_SESSION globals gaan gebruiken
 session_start();
 
-/**
- * Voor de MAC gebruikers;
- */
-// $dbhost = "localhost";
-// $dbuser = "root";
-// $dbpass = "root";
-// $dbname = "webshop";
-
-/**
- * Voor de Windows gebruikers;
- */
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
@@ -25,8 +13,8 @@ if ($con -> connect_errno) {
     exit();
 }
 
-define("BASEURL","http://localhost/P3-webshop/webdev-base-webshop-live-les/");
-define("BASEURL_CMS","http://localhost/P3-webshop/webdev-base-webshop-live-les/admin/");
+define("BASEURL","http://localhost/php/");
+define("BASEURL_CMS","http://localhost/php/admin/");
 
 function prettyDump ( $var ) {
     echo "<pre>";
