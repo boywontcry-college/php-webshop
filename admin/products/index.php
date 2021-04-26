@@ -6,8 +6,9 @@
         <div class="container"><a class="navbar-brand" href="/">Creep's Webshop</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="../users/">Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../users/">Administrators</a></li>
                     <li class="nav-item"><a class="nav-link active" href="../products/">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../categories/">Categories</a></li>
                     <li class="nav-item"><a class="nav-link" href="../customers/">Customers</a></li>
                 </ul><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="../logout.php">Log Out</a></span>
             </div>
