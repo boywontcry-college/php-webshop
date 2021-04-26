@@ -24,7 +24,7 @@
                 <div class="modal-content">
                     <form action="" method="POST">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Edit User</h4>
+                            <h4 class="modal-title">Edit Administrator</h4>
                             <a class="close" href="./index.php" aria-hidden="true">&times;</a>
                         </div>
                         <div class="modal-body">
