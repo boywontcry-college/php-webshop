@@ -10,7 +10,7 @@
             echo mysqli_error($con);
         }
                     
-        $query1->bind_param('si',$email,$uid);
+        $query1->bind_param('si', $email, $uid);
         if ($query1->execute() === false) {
             echo mysqli_error($con);
         } else {
@@ -31,7 +31,7 @@
                         <?php
                             if (isset($_GET['uid']) && $_GET['uid'] != '') {
                                 $uid = $con->real_escape_string($_GET['uid']);
-                                $liqry = $con->prepare("SELECT admin_user_id, email FROM admin_user WHERE admin_user_id = ? LIMIT 1;");
+                                $liqry = $con->prepare("SELECT a.admin_user_id, a.email FROM admin_user AS a WHERE a.admin_user_id = ? LIMIT 1;");
                                 if($liqry === false) {
                                 echo mysqli_error($con);
                                 } else{
