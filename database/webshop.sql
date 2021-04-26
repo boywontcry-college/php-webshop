@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 25, 2021 at 02:34 PM
+-- Generation Time: Apr 26, 2021 at 12:41 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -41,8 +41,11 @@ CREATE TABLE `admin_user` (
 --
 
 INSERT INTO `admin_user` (`admin_user_id`, `email`, `password`, `password_token`, `password_changed`, `datetime`) VALUES
-(1, 'test@test.nl', '$2y$10$3eJXM2NBYpOH8opTNAHVye/uRtxMhWNLS0NX9qpp1WqygPBnX4vjS', '', '2021-02-18 15:06:05', '2021-02-17 14:32:17'),
-(2, 'admin@test.nl', NULL, NULL, NULL, '2021-04-21 08:04:20');
+(1, 'test@test.nl', '$2y$10$3eJXM2NBYpOH8opTNAHVye/uRtxMhWNLS0NX9qpp1WqygPBnX4vjS', '77aa4703ebb0ed94e3e7c8c9ab2f3e141b61302d', '2021-02-18 15:06:05', '2021-02-17 14:32:17'),
+(2, 'admin@test.nl', '$2y$10$nnWWErVJGYn/PJ9Yx.MGpelSqsZqqe1GQzTaxk4p77IiG.mtw9FVe', 'cf7146035ec5ed69f13ce21fa17a86f0592423ae', '2021-04-25 15:02:19', '2021-04-21 08:04:20'),
+(3, 'test2@admin.nl', NULL, NULL, NULL, '2021-04-25 17:47:35'),
+(4, 'test24@test.nl', NULL, NULL, NULL, '2021-04-25 17:50:10'),
+(6, 'test3@admin.nl', NULL, NULL, NULL, '2021-04-25 17:51:07');
 
 -- --------------------------------------------------------
 
@@ -141,8 +144,6 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `name`, `description`, `category_id`, `price`, `color`, `weight`, `active`) VALUES
-(1, 'arstid', 'De lampenkap van textiel geeft een zacht en decoratief licht.\r\n<br><br>\r\nLichtbron wordt apart verkocht. IKEA adviseert de led-lamp E27 globevorm opaalwit.\r\n<br><b>\r\nGebruik een opalen lichtbron als je een gewone lampenkap of lamp hebt en je een gelijkmatig, gespreid licht wilt.\r\n<br><br>\r\nVoorzien van trekschakelaar.\r\n<br><br>\r\nDit product is CE-gecertificeerd.\r\n\r\nGoed te completeren met andere lampen uit dezelfde serie.', 1, '39.95', 'wit', 300, 0),
-(2, 'buitenlamp', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 2, '29.95', 'zwart', 200, 0),
 (3, 'gans-lamp', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 3, '59.95', 'grijs', 400, 0),
 (4, 'giraf-lamp', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 3, '59.95', 'wit, zwart', 400, 0),
 (5, 'hektar', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 4, '14.95', 'grijs', 100, 0),
@@ -300,7 +301,7 @@ ALTER TABLE `tbl_order`
 -- AUTO_INCREMENT for table `admin_user`
 --
 ALTER TABLE `admin_user`
-  MODIFY `admin_user_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_user_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -324,7 +325,7 @@ ALTER TABLE `order_product`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `product_image`
