@@ -35,7 +35,7 @@
                         if ($usiqry === false) {
                             trigger_error(mysqli_error($con));
                         } else {
-                            $usiqry->bind_result($adminId, $email, $password_changed, $datetime);
+                            $usiqry->bind_result($adminId, $adminEmail, $adminPasswordChanged, $adminDatetime);
                             if ($usiqry->execute()) {
                                 $usiqry->store_result();
                                 echo '<tr>
@@ -50,9 +50,9 @@
 				    <tbody>
                     <tr>
                         <td><?php echo $adminId; ?></td>
-                        <td><?php echo $email; ?></td>
-                        <td><?php echo $password_changed; ?></td>
-                        <td><?php echo $datetime; ?></td>
+                        <td><?php echo $adminEmail; ?></td>
+                        <td><?php echo $adminPasswordChanged; ?></td>
+                        <td><?php echo $adminDatetime; ?></td>
                         <td>
 							<a href="edit_user.php?uid=<?php echo $adminId; ?>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a href="delete_user.php?uid=<?php echo $adminId; ?>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>

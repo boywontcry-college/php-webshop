@@ -36,7 +36,7 @@
                                 echo mysqli_error($con);
                                 } else{
                                     $liqry->bind_param('i', $uid);
-                                    $liqry->bind_result($adminId, $email);
+                                    $liqry->bind_result($adminId, $adminEmail);
                                     if($liqry->execute()){
                                         $liqry->store_result();
                                         $liqry->fetch();
@@ -47,7 +47,7 @@
                                               </div>
                                               <div class="form-group">
                                                   <label>E-mail</label>
-                                                  <input type="email" name="email" class="form-control" value="' . $email . '" required>
+                                                  <input type="email" name="email" class="form-control" value="' . $adminEmail . '" required>
                                               </div>';
                                         }
                                     }
