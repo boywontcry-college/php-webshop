@@ -56,7 +56,7 @@
                         <td><?php echo $productName; ?></td>
                         <td><?php echo $productDescription; ?></td>
                         <td><?php echo $categoryId; ?></td>
-                        <td><?php echo $productPrice; ?></td>
+                        <td>&euro;<?php echo $productPrice; ?></td>
                         <td><?php echo $productColor; ?></td>
                         <td><?php echo $productWeight; ?></td>
                         <td><?php echo $productActive; ?></td>
