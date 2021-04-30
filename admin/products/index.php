@@ -62,7 +62,7 @@
                         <td><?php echo $productWeight; ?></td>
                         <td><?php echo $productActive; ?></td>
                         <td>
-							<a href="edit_product.php?pid=<?php echo $productId; ?>?cid=<?php echo $categoryId; ?>?aid=<?php echo $productActive; ?>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="edit_product.php?pid=<?php echo $productId; ?>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a href="delete_product.php?pid=<?php echo $productId; ?>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
                     </tr>

@@ -35,9 +35,7 @@
                         </div>
                         <div class="modal-body">
                         <?php
-                            if (isset($_GET['pid']) && $_GET['pid'] != ''
-                             || isset($_GET['cid']) && $_GET['cid'] != ''
-                             || isset($_GET['active']) && $_GET['active'] != '') {
+                            if (isset($_GET['pid']) && $_GET['pid'] != '') {
                                 $pid = $con->real_escape_string($_GET['pid']);
                                 $liqry = $con->prepare("SELECT p.product_id, p.name, p.description, p.category_id, p.price, p.color, p.weight, p.active FROM product AS p WHERE p.product_id = ? LIMIT 1;");
                                 if($liqry === false) {
