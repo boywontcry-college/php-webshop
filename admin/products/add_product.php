@@ -10,7 +10,6 @@
         $color = $con->real_escape_string($_POST['color']);
         $weight = $con->real_escape_string($_POST['weight']);
         $active = $con->real_escape_string($_POST['active']);
-
         $liqry = $con->prepare("INSERT INTO product (name, description, category_id, price, color, weight, active) VALUES (?,?,?,?,?,?,?)");
         if($liqry === false) {
            echo mysqli_error($con);
@@ -42,8 +41,23 @@
                                 <input type="text" class="form-control" name="desc" value="" required>
                             </div>
                             <div class="form-group">
-                                <label>Category ID</label>
-                                <input type="number" class="form-control" name="cid" value="" required>
+                                <label>Category</label>
+                                <?php 
+                                $categoryqry = $con->prepare("SELECT category_id, name FROM category;");
+                                $categoryqry->bind_result($categoryId, $cName);
+                        
+                                if ($categoryqry->execute()) {
+                                    $categoryqry->store_result();
+            
+                                    echo '<select name="cid" class="form-control" value="' . $categoryId . '">';
+                                    while ($categoryqry->fetch()) {
+                                        
+                                        ?>
+                                        <option value="<?php echo $categoryId; ?>"><?php echo $cName; ?></option>
+                                    <?php
+                                    }
+                                    echo '</select>';
+                                } ?>
                             </div>
                             <div class="form-group">
                                 <label>Product price</label>
@@ -59,7 +73,21 @@
                             </div>
                             <div class="form-group">
                                 <label>Product active</label>
-                                <input type="number" class="form-control" name="active" value="" required>
+                                <?php 
+                                $activeqry = $con->prepare("SELECT active_id, active_type FROM active;");
+                                $activeqry->bind_result($activeId, $activeType);
+                                            
+                                if ($activeqry->execute()) {
+                                    $activeqry->store_result();
+                                
+                                    echo '<select name="active" class="form-control" value="' . $activeId . '">';
+                                    while ($activeqry->fetch()) {   
+                                    ?>
+                                    <option value="<?php echo $activeId; ?>"><?php echo $activeType; ?></option>
+                                    <?php
+                                }
+                                echo '</select>';
+                            } ?>
                             </div>					
                         </div>
                         <div class="modal-footer">
