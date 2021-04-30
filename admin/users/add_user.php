@@ -4,7 +4,6 @@
 
     if (isset($_POST['email']) && $_POST['email'] != "") {
         $email = $con->real_escape_string($_POST['email']);
-
         $liqry = $con->prepare("INSERT INTO admin_user (email) VALUES (?)");
         if($liqry === false) {
            echo mysqli_error($con);
