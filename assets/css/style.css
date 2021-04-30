@@ -475,6 +475,7 @@ body table.table tr td {
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 150px;
+  text-transform: capitalize;
 }
 
 body table.table th i {
@@ -652,6 +653,8 @@ body .modal .modal-header .close {
 
 body .modal .modal-body {
   padding: 20px 30px;
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
 body .modal .modal-footer {
@@ -675,6 +678,7 @@ body .modal .form-control {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-color: #dddddd;
+  text-transform: capitalize;
 }
 
 body .modal textarea.form-control {

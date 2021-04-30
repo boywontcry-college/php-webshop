@@ -76,6 +76,7 @@ table.table {
             white-space: nowrap;
             text-overflow: ellipsis;
             max-width: 150px;
+            text-transform: capitalize;
         }
     }
 
@@ -290,6 +291,8 @@ table.table-striped.table-hover {
 
     .modal-body {
         padding: 20px 30px;
+        max-height: 60vh;
+        overflow-y: auto;
     }
 
     .modal-footer {
@@ -312,6 +315,7 @@ table.table-striped.table-hover {
         border-radius: 2px;
         box-shadow: none;
         border-color: #dddddd;
+        text-transform: capitalize;
     }
 
     textarea.form-control {
