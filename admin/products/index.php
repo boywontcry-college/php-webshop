@@ -31,7 +31,7 @@
 			    <table class="table table-striped table-hover">
 				    <thead>
                     <?php
-                        $usiqry = $con->prepare("SELECT p.product_id, p.name, p.description, category_id, price, color, p.weight, active FROM product AS p");
+                        $usiqry = $con->prepare("SELECT p.product_id, p.name, p.description, c.name, p.price, p.color, p.weight, a.active_type FROM product AS p, category AS c, active AS a WHERE p.category_id = c.category_id AND p.active = a.active_id");
                         if ($usiqry === false) {
                             trigger_error(mysqli_error($con));
                         } else {
@@ -42,7 +42,7 @@
                                       <th>Product ID</th>
                                       <th>Name</th>
                                       <th>Description</th>
-                                      <th>Category ID</th>
+                                      <th>Category</th>
                                       <th>Price</th>
                                       <th>Color</th>
                                       <th>Weight</th>
@@ -62,7 +62,7 @@
                         <td><?php echo $productWeight; ?></td>
                         <td><?php echo $productActive; ?></td>
                         <td>
-							<a href="edit_product.php?pid=<?php echo $productId; ?>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="edit_product.php?pid=<?php echo $productId; ?>?cid=<?php echo $categoryId; ?>?aid=<?php echo $productActive; ?>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a href="delete_product.php?pid=<?php echo $productId; ?>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
                     </tr>
