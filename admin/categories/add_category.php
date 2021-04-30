@@ -39,7 +39,21 @@
                             </div>
                             <div class="form-group">
                                 <label>Category active</label>
-                                <input type="number" class="form-control" name="active" value="" required>
+                                <?php 
+                                $activeqry = $con->prepare("SELECT active_id, active_type FROM active;");
+                                $activeqry->bind_result($activeId, $activeType);
+                                            
+                                if ($activeqry->execute()) {
+                                    $activeqry->store_result();
+                                
+                                    echo '<select name="active" class="form-control" value="' . $activeId . '">';
+                                    while ($activeqry->fetch()) {   
+                                    ?>
+                                    <option value="<?php echo $activeId; ?>"><?php echo $activeType; ?></option>
+                                    <?php
+                                }
+                                echo '</select>';
+                            } ?>
                             </div>					
                         </div>
                         <div class="modal-footer">

@@ -43,22 +43,43 @@
                                         $liqry->store_result();
                                         $liqry->fetch();
                                         if($liqry->num_rows == '1'){
-                                            echo '<div class="form-group">
-                                                      <label>Product ID</label>
-                                                      <input type="text" name="cid" class="form-control" value="' . $categoryId . '" readonly>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label>Product name</label>
-                                                      <input type="text" name="name" class="form-control" value="' . $categoryName . '" required>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label>Product description</label>
-                                                      <input type="text" name="desc" class="form-control" value="' . $categoryDescription . '" required>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label>Product active</label>
-                                                      <input type="number" name="active" class="form-control" value="' . $categoryActive . '" required>
-                                                  </div>';
+                                            ?>
+                                                <div class="form-group">
+                                                    <label>Product ID</label>
+                                                    <input type="text" name="cid" class="form-control" value="<?php echo $categoryId ?>" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Product name</label>
+                                                    <input type="text" name="name" class="form-control" value="<?php echo $categoryName ?>" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Product description</label>
+                                                    <input type="text" name="desc" class="form-control" value="<?php echo $categoryDescription ?>" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Product active</label>
+                                                    <?php 
+                                                    $activeqry = $con->prepare("SELECT active_id, active_type FROM active;");
+                                                    $activeqry->bind_result($active, $activeType);
+                                            
+                                                    if ($activeqry->execute()) {
+                                                        $activeqry->store_result();
+                                
+                                                        echo '<select name="active" class="form-control" value="' . $categoryActive . '">';
+                                                        while ($activeqry->fetch()) {
+                                                            $selected = "";
+                                                            if ($categoryActive == $active) {
+                                                                $selected = "selected";
+                                                            }
+                                                            
+                                                            ?>
+                                                            <option value="<?php echo $active; ?>" <?php echo $selected ?>><?php echo $activeType; ?></option>
+                                                        <?php
+                                                        }
+                                                        echo '</select>';
+                                                    } ?>
+                                                </div>
+                                            <?php
                                         }
                                     }
                                 }
