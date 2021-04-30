@@ -31,7 +31,7 @@
 			    <table class="table table-striped table-hover">
 				    <thead>
                     <?php
-                        $usiqry = $con->prepare("SELECT c.category_id, c.name, c.description, c.active FROM category AS c");
+                        $usiqry = $con->prepare("SELECT c.category_id, c.name, c.description, a.active_type FROM category AS c, active as a WHERE c.active = a.active_id");
                         if ($usiqry === false) {
                             trigger_error(mysqli_error($con));
                         } else {
