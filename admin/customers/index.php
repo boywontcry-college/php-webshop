@@ -41,13 +41,9 @@
                                 echo '<tr>
                                       <th>Customer ID</th>
                                       <th>Gender</th>
-                                      <th>First name</th>
-                                      <th>Middle name</th>
-                                      <th>Last name</th>
-                                      <th>Street</th>
-                                      <th>House number</th>
-                                      <th>Zip</th>
-                                      <th>City</th>
+                                      <th>Name</th>
+                                      <th>Adress</th>
+                                      <th>Zip Code</th>
                                       <th>Phone</th>
                                       <th>E-mail</th>
                                       <th>Subbed</th>
@@ -60,13 +56,9 @@
                     <tr>
                         <td><?php echo $customerId; ?></td>
                         <td><?php echo $customerGender; ?></td>
-                        <td><?php echo $customerFirstName; ?></td>
-                        <td><?php echo $customerMiddleName; ?></td>
-                        <td><?php echo $customerLastName; ?></td>
-                        <td><?php echo $customerStreet; ?></td>
-                        <td><?php echo $customerHouseNumber, $customerHouseNumberAddon; ?></td>
-                        <td><?php echo $customerZipCode; ?></td>
-                        <td><?php echo $customerCity; ?></td>
+                        <td><?php echo $customerFirstName . " " . $customerMiddleName . " " . $customerLastName;  ?></td>
+                        <td><?php echo $customerStreet . " " . $customerHouseNumber . $customerHouseNumberAddon; ?></td>
+                        <td><?php echo $customerZipCode . ", " . $customerCity; ?></td>
                         <td><?php echo $customerPhone; ?></td>
                         <td><?php echo $customerEmail; ?></td>
                         <td><?php echo $customerNewsletter; ?></td>
