@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 26, 2021 at 12:41 AM
+-- Generation Time: May 01, 2021 at 03:20 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `webshop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `active`
+--
+
+CREATE TABLE `active` (
+  `active_id` int(11) NOT NULL,
+  `active_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `active`
+--
+
+INSERT INTO `active` (`active_id`, `active_type`) VALUES
+(0, 'no'),
+(1, 'yes');
 
 -- --------------------------------------------------------
 
@@ -43,7 +62,7 @@ CREATE TABLE `admin_user` (
 INSERT INTO `admin_user` (`admin_user_id`, `email`, `password`, `password_token`, `password_changed`, `datetime`) VALUES
 (1, 'test@test.nl', '$2y$10$3eJXM2NBYpOH8opTNAHVye/uRtxMhWNLS0NX9qpp1WqygPBnX4vjS', '77aa4703ebb0ed94e3e7c8c9ab2f3e141b61302d', '2021-02-18 15:06:05', '2021-02-17 14:32:17'),
 (2, 'admin@test.nl', '$2y$10$nnWWErVJGYn/PJ9Yx.MGpelSqsZqqe1GQzTaxk4p77IiG.mtw9FVe', 'cf7146035ec5ed69f13ce21fa17a86f0592423ae', '2021-04-25 15:02:19', '2021-04-21 08:04:20'),
-(3, 'test2@admin.nl', NULL, NULL, NULL, '2021-04-25 17:47:35'),
+(3, 'test2222@admin.nl', NULL, NULL, NULL, '2021-04-25 17:47:35'),
 (4, 'test24@test.nl', NULL, NULL, NULL, '2021-04-25 17:50:10'),
 (6, 'test3@admin.nl', NULL, NULL, NULL, '2021-04-25 17:51:07');
 
@@ -80,7 +99,7 @@ INSERT INTO `category` (`category_id`, `name`, `description`, `active`) VALUES
 
 CREATE TABLE `customer` (
   `customer_id` int(11) UNSIGNED NOT NULL,
-  `gender` set('Vrouw','Man','Overig') NOT NULL,
+  `gender` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `middle_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -90,7 +109,7 @@ CREATE TABLE `customer` (
   `zip_code` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `e-mailadres` varchar(255) DEFAULT NULL,
+  `emailadres` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `newsletter_subscription` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -100,12 +119,32 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customer_id`, `gender`, `first_name`, `middle_name`, `last_name`, `street`, `house_number`, `house_number_addon`, `zip_code`, `city`, `phone`, `e-mailadres`, `password`, `newsletter_subscription`, `date_added`) VALUES
+INSERT INTO `customer` (`customer_id`, `gender`, `first_name`, `middle_name`, `last_name`, `street`, `house_number`, `house_number_addon`, `zip_code`, `city`, `phone`, `emailadres`, `password`, `newsletter_subscription`, `date_added`) VALUES
 (1, 'Man', 'Maarten', NULL, 'Bos', 'Ooievaarsbek', 52, NULL, '3621TG', 'Breukelen', '0615302473', 'arieisraargekdom@gmail.com', NULL, 1, '2021-04-25 03:34:23'),
 (2, 'Overig', 'Daan', NULL, 'de Ruiter', 'Damastbloem', 7, NULL, '3621RX', 'Breukelen', NULL, NULL, NULL, 0, '2021-04-25 03:34:23'),
-(3, 'Man', 'Latif', NULL, 'Hensbergen', 'Binguslaan', 69, NULL, '4200 BG', 'Breukelen', NULL, 'kir@crybaby.tech', NULL, 0, '2021-04-25 03:34:23'),
-(4, 'Vrouw', 'Test', NULL, 'Persoon', 'Straat', 2, NULL, '6969AA', 'Amsterdam', NULL, NULL, NULL, 0, '2021-04-25 03:34:23'),
-(5, 'Overig', 'Nummer', NULL, 'Vijf', 'Bingus', 2, NULL, '4204 HH', 'Breukelen', NULL, '', NULL, 0, '2021-04-25 03:34:23');
+(3, 'Man', 'Latif', '', 'Hensbergen', 'Binguslaan', 69, '', '4200 BG', 'Breukelen', '', 'kir@crybaby.tech', NULL, 1, '2021-04-25 03:34:23'),
+(4, 'Overig', 'Test', '', 'Persoon', 'Straat', 2, '', '6969AA', 'Amsterdam', '', '', NULL, 0, '2021-04-25 03:34:23'),
+(5, 'Overig', 'Nummer', '', 'Vijf', 'Bingus', 2, 'B', '4204 HH', 'Breukelen', '', '', NULL, 0, '2021-04-25 03:34:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gender`
+--
+
+CREATE TABLE `gender` (
+  `gender_id` int(11) NOT NULL,
+  `gender_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gender`
+--
+
+INSERT INTO `gender` (`gender_id`, `gender_type`) VALUES
+(1, 'Vrouw'),
+(2, 'Man'),
+(3, 'Overig');
 
 -- --------------------------------------------------------
 
@@ -144,14 +183,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `name`, `description`, `category_id`, `price`, `color`, `weight`, `active`) VALUES
-(3, 'gans-lamp', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 3, '59.95', 'grijs', 400, 0),
-(4, 'giraf-lamp', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 3, '59.95', 'wit, zwart', 400, 0),
-(5, 'hektar', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 4, '14.95', 'grijs', 100, 0),
-(6, 'jesse', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 3, '29.95', 'zwart', 500, 0),
-(7, 'lampje', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 3, '59.95', 'zwart', 400, 0),
-(8, 'llahra', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 3, '49.95', 'wit', 300, 0),
-(9, 'struisvogel-lamp', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce.', 3, '69.95', 'goud', 700, 0),
-(10, 'shure sm7b', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere lorem ipsum dolor sit amet.', 6, '369.95', 'black', 765, 1),
+(10, 'shure sm7b', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere lorem ipsum dolor sit amet.', 6, '369.95', 'black', 766, 1),
 (11, 'blue yeti', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere lorem ipsum dolor sit amet.', 5, '119.95', 'grey, white, black, blue, red', 678, 1),
 (12, 'electro-voice re20', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere lorem ipsum dolor sit amet.', 6, '569.95', 'beige', 455, 1),
 (13, 'shure mv7', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere lorem ipsum dolor sit amet.', 6, '254.95', 'black', 760, 1),
@@ -225,6 +257,25 @@ INSERT INTO `product_image` (`product_image_id`, `product_id`, `image`, `active`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subscribe`
+--
+
+CREATE TABLE `subscribe` (
+  `subscribe_id` int(11) NOT NULL,
+  `subscribe_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subscribe`
+--
+
+INSERT INTO `subscribe` (`subscribe_id`, `subscribe_type`) VALUES
+(0, 'no'),
+(1, 'yes');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_order`
 --
 
@@ -251,6 +302,12 @@ CREATE TABLE `tbl_order` (
 --
 
 --
+-- Indexes for table `active`
+--
+ALTER TABLE `active`
+  ADD PRIMARY KEY (`active_id`);
+
+--
 -- Indexes for table `admin_user`
 --
 ALTER TABLE `admin_user`
@@ -268,6 +325,12 @@ ALTER TABLE `category`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`customer_id`);
+
+--
+-- Indexes for table `gender`
+--
+ALTER TABLE `gender`
+  ADD PRIMARY KEY (`gender_id`);
 
 --
 -- Indexes for table `order_product`
@@ -288,6 +351,12 @@ ALTER TABLE `product_image`
   ADD PRIMARY KEY (`product_image_id`);
 
 --
+-- Indexes for table `subscribe`
+--
+ALTER TABLE `subscribe`
+  ADD PRIMARY KEY (`subscribe_id`);
+
+--
 -- Indexes for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
@@ -298,10 +367,16 @@ ALTER TABLE `tbl_order`
 --
 
 --
+-- AUTO_INCREMENT for table `active`
+--
+ALTER TABLE `active`
+  MODIFY `active_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `admin_user`
 --
 ALTER TABLE `admin_user`
-  MODIFY `admin_user_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `admin_user_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -316,6 +391,12 @@ ALTER TABLE `customer`
   MODIFY `customer_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `gender`
+--
+ALTER TABLE `gender`
+  MODIFY `gender_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
@@ -325,13 +406,19 @@ ALTER TABLE `order_product`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
   MODIFY `product_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `subscribe`
+--
+ALTER TABLE `subscribe`
+  MODIFY `subscribe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
