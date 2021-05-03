@@ -1,5 +1,5 @@
 <?php
-    include('core/header.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/header.php');
 
     if (isset($_POST['submit']) && $_POST['submit'] != '') {
         $token = $con->real_escape_string($_GET['token']);
@@ -30,22 +30,32 @@
                     } 
                     $query1->close();
                     
-                    echo "Gelukt, u wordt doorgestuurd... <meta http-equiv=\"refresh\" content=\"2; URL=index.php\">";
+                    echo "<meta http-equiv=\"refresh\" content=\"2; URL=index\">";
                     exit();
                 } else {
-                    echo "ERROR tijdens verzenden. Komen de wachtwoorden overeen?";
+                    echo "ERROR Passwords are not the same.";
                 }
             }
             $liqry->close();
         }
     }
 ?>
-<form action="verify_password.php?token=<?= $_GET['token'];?>" method="post">
-    <input type="password" name="password_1" id="" placeholder="Password">
-    <input type="password" name="password_2" id="" placeholder="Repeat Password">
-    <input type="submit" name="submit" value="Request password">
-    <a href="index.php">Login</a>
-</form>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="/">Creep's Webshop</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+            </div>
+        </div>
+    </nav>
+    <div class="login-clean">
+        <form action="verify_password?token=<?= $_GET['token'];?>" method="post">
+            <h2 class="sr-only">Verify Password Form</h2>
+            <div class="illustration"><ion-icon name="lock"></ion-icon></div>
+            <div class="form-group"><input class="form-control" type="password" name="password_1" placeholder="Password"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password_2" placeholder="Repeat password"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="submit" value="Request password">Change password</button></div>
+            <a class="forgot" href="index">Return to log in.</a>
+        </form>
+    </div>
 <?php
-    include('core/footer.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/footer.php');
 ?>
