@@ -77,6 +77,10 @@ table.table {
             text-overflow: ellipsis;
             max-width: 150px;
             text-transform: capitalize;
+
+            &#mail {
+                text-transform: none;
+            }
         }
     }
 
