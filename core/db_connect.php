@@ -13,8 +13,8 @@ if ($con->connect_errno) {
     exit();
 }
 
-define("BASEURL", "http://localhost/php/");
-define("BASEURL_CMS", "http://localhost/php/admin/");
+define("BASEURL", "http://php.test/");
+define("BASEURL_CMS", "http://php.test/admin/");
 
 function prettyDump($var) {
     echo "<pre>";
