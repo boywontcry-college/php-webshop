@@ -1,6 +1,6 @@
 <?php
-    include('../core/header.php');
-    include('../core/checklogin_admin.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/header.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/checklogin_admin.php');
 
     if (isset($_POST['submit']) && $_POST['submit'] != "") {
         $gender = $con->real_escape_string($_POST['gender']);
@@ -21,7 +21,7 @@
         } else {
             $liqry->bind_param('sssssisssssi', $gender, $firstName, $middleName, $lastName, $street, $houseNumber, $houseNumberAddon, $zipCode, $city, $phone, $email, $newsletter);
             if($liqry->execute()) {
-                header("location: index.php");
+                header("location: index");
             }
         }
         $liqry->close();
@@ -34,7 +34,7 @@
                     <form action="" method="POST">
                         <div class="modal-header">						
                             <h4 class="modal-title">Add Customer</h4>
-                            <a class="close" href="./index.php" aria-hidden="true">&times;</a>
+                            <a class="close" href="./index" aria-hidden="true">&times;</a>
                         </div>
                         <div class="modal-body">					
                             <div class="form-group">
@@ -115,7 +115,7 @@
                             </div>					
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-default" href="./index.php" ">Cancel</a>
+                            <a class="btn btn-default" href="./index" ">Cancel</a>
                             <input type="submit" name="submit" class="btn btn-success" value="Add">
                         </div>
                     </form>
@@ -124,5 +124,5 @@
         </div>    
     </div>
 <?php
-    include('../core/footer.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/footer.php');
 ?>

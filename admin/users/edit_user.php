@@ -1,6 +1,6 @@
 <?php
-    include('../core/header.php');
-    include('../core/checklogin_admin.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/header.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/checklogin_admin.php');
 
     if (isset($_POST['submit']) && $_POST['submit'] != '') {
         $uid = $con->real_escape_string($_POST['uid']);
@@ -14,7 +14,7 @@
         if ($query1->execute() === false) {
             echo mysqli_error($con);
         } else {
-            header("location: index.php");
+            header("location: index");
         }
         $query1->close();               
     } ?>
@@ -25,7 +25,7 @@
                     <form action="" method="POST">
                         <div class="modal-header">						
                             <h4 class="modal-title">Edit Administrator</h4>
-                            <a class="close" href="./index.php" aria-hidden="true">&times;</a>
+                            <a class="close" href="./index" aria-hidden="true">&times;</a>
                         </div>
                         <div class="modal-body">
                         <?php
@@ -56,7 +56,7 @@
                             } ?>								
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-default" href="./index.php" ">Cancel</a>
+                            <a class="btn btn-default" href="./index" ">Cancel</a>
                             <input type="submit" name="submit" class="btn btn-info" value="Edit">
                         </div>
                     </form>
@@ -65,5 +65,5 @@
         </div>    
     </div>
 <?php
-    include('../core/footer.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/footer.php');
 ?>

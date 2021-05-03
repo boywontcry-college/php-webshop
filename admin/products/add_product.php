@@ -1,6 +1,6 @@
 <?php
-    include('../core/header.php');
-    include('../core/checklogin_admin.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/header.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/checklogin_admin.php');
 
     if (isset($_POST['submit']) && $_POST['submit'] != "") {
         $name = $con->real_escape_string($_POST['name']);
@@ -100,5 +100,5 @@
         </div>    
     </div>
 <?php
-    include('../core/footer.php');
+    include($_SERVER['DOCUMENT_ROOT'] . 'admin/core/footer.php');
 ?>
