@@ -16,7 +16,7 @@
         } else {
             $liqry->bind_param('ssidsii', $name, $desc, $cid, $price, $color, $weight, $active);
             if($liqry->execute()) {
-                header("location: index.php");
+                header("location: index");
             }
         }
         $liqry->close();
@@ -29,7 +29,7 @@
                     <form action="" method="POST">
                         <div class="modal-header">						
                             <h4 class="modal-title">Add User</h4>
-                            <a class="close" href="./index.php" aria-hidden="true">&times;</a>
+                            <a class="close" href="./index" aria-hidden="true">&times;</a>
                         </div>
                         <div class="modal-body">					
                             <div class="form-group">
@@ -91,7 +91,7 @@
                             </div>					
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-default" href="./index.php" ">Cancel</a>
+                            <a class="btn btn-default" href="./index" ">Cancel</a>
                             <input type="submit" name="submit" class="btn btn-success" value="Add">
                         </div>
                     </form>
