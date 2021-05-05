@@ -1,5 +1,7 @@
 <?php
     include($_SERVER['DOCUMENT_ROOT'] . '/core/header.php');
+
+    $limit = mysqli_query($con, "SELECT MAX(p.product_id) FROM product AS p LIMIT 1");
 ?>
 
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
@@ -16,25 +18,25 @@
     <main>
         <section id="product-container">
             <?php
-            $liqry = $con->prepare("SELECT p.product_id, p.name, p.price FROM product as p WHERE p.active = 1 ORDER BY RAND()");
+            $liqry = $con->prepare("SELECT DISTINCT i.product_id, p.product_id, p.name, p.price, i.image FROM product AS p, image AS i WHERE p.active = 1 AND i.active = 1 AND p.product_id = i.product_id ORDER BY RAND()");
             if ($liqry === false) {
                 echo mysqli_error($con);
             } else {
-                $liqry->bind_result($id, $name, $price);
+                $liqry->bind_result($productId, $id, $name, $price, $imagePath);
                 if ($liqry->execute()) {
                     $liqry->store_result();
                     while ($liqry->fetch()) { 
             ?>
                         <article class="product-card" onclick="location.href='product?id=<?php echo $id; ?>'">
                             <figure>
-                                <img src="/assets/img/shure-sm7b-1.jpg" alt="shure-sm7b-1">
+                                <img src="assets/img/<?php echo $imagePath; ?>" alt="<?php echo $id; ?>">
                                 <figcaption>
                                     <p class="title"><?php echo $name; ?></p>
                                 </figcaption>
                             </figure>
                             <p class="product-content"><strong><span class="product-price"><?php echo $price; ?></span></strong></p>
                         </article>
-            <?php
+            <?php  
                     }
                 }
                 $liqry->close();
