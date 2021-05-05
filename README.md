@@ -61,11 +61,11 @@ webshop.php
 │   │   └───header.php
 │   └───database
 │   │   └───webshop.sql
+│   ├───.htaccess
 │   ├───contact.php
 │   ├───index.php
 │   └───product.php
 ├───.gitignore
-├───.htaccess
 └───README.md
 ```
 
