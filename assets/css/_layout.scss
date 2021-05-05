@@ -60,7 +60,7 @@
                 &.main-img {
                     width: 440px;
                     height: 440px;
-                    object-fit: contain;
+                    object-fit: unset;
                     display: block;
                 }
 
@@ -68,7 +68,7 @@
                     margin-top: 20px;
                     width: 210px;
                     height: 210px;
-                    object-fit: contain;
+                    object-fit: unset;
                     display: inline-block;
 
                     &.right {

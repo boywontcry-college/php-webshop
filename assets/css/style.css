@@ -1009,8 +1009,8 @@ body #product-container #product-wrapper figure {
 body #product-container #product-wrapper figure img.main-img {
   width: 440px;
   height: 440px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: unset;
+     object-fit: unset;
   display: block;
 }
 
@@ -1018,8 +1018,8 @@ body #product-container #product-wrapper figure img.side-img {
   margin-top: 20px;
   width: 210px;
   height: 210px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: unset;
+     object-fit: unset;
   display: inline-block;
 }
 
