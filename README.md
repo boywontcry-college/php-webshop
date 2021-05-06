@@ -54,7 +54,7 @@ webshop.php
 │   │   ├───img
 │   │   │   └───input_icons.css
 │   │   └───js
-│   │   │   └───quantity.css
+│   │   │   └───quantity.js
 │   ├───core
 │   │   ├───db_connect.php
 │   │   ├───footer.php
