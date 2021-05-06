@@ -13,8 +13,8 @@ if ($con->connect_errno) {
     exit();
 }
 
-define("BASEURL", "http://webshop.test/");
-define("BASEURL_CMS", "http://webshop.test/admin/");
+define("BASEURL", "http://domain.tld/");
+define("BASEURL_CMS", "http://domain.tld/admin/");
 
 function prettyDump($var) {
     echo "<pre>";
