@@ -52,7 +52,7 @@ webshop.php
 │   │   │   ├───style.css
 │   │   │   └───style.scss
 │   │   ├───img
-│   │   │   └───input_icons.css
+│   │   │   └───input_icons.png
 │   │   └───js
 │   │   │   └───quantity.js
 │   ├───core
