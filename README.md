@@ -1,4 +1,4 @@
-# webshop.php
+# non-functional php webshop, horrid code looking back at it but i still take pride in it
 
 ## Functions:
 - Display all products on front page
